@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html ng-app="teamTempApp">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" ng-app="teamTempApp">
+
   <head>
+    <!-- scripts ******************************************************************-->
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="content/bootstrap/js/jquery.js"></script>
+    <script src=content/bootstrap/js/bootstrap.js></script>
+    <!-- css ********************************************************************** -->
+    <link rel="stylesheet" type="text/css" href="http://localhost/TeamTemperature.client/content/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost/TeamTemperature.client/content/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost/TeamTemperature.client/content/bootstrap/css/bootstrap-theme.css"/>
+    <!-- responsive *************************************************************** -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
 
-    <div id="main">
+  <body>
+    <div class="container">
       <div ng-view></div>
     </div>
-
     <footer></footer>
   </body>
+
 </html>
