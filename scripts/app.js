@@ -26,9 +26,9 @@ angular
 // UserController.js
 angular
   .module('teamTempApp')
-  .controller('UserController', ['$http','$scope', function($http, $scope) {
+  .controller('UserController', ['$http', '$scope', function($http) {
     var self = this;
-    $scope.formData = {};
+    self.formData = {};
 
     self.submit = function() {
       $http.post('http://localhost:50211/api/user/add',
@@ -43,7 +43,10 @@ angular
 
     self.getUserData = function() {
       return {
-        FirstName: $scope.formData.firstname,
+        FirstName: self.formData.firstname,
+        Surname: self.formData.surname,
+        Email: self.formData.email,
+        Priviledge: self.formData.priviledge
       };
     };
 
