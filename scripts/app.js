@@ -41,6 +41,17 @@ angular
         });
     };
 
+    self.initi = function() {
+      $http.post('http://localhost:50211/api/user/allvalidusers',
+        {})
+        .success(function(response) {
+          self.allUsers = response;
+        })
+        .error(function() {
+          console.log('Failed');
+        });
+    };
+
     self.getUserData = function() {
       return {
         FirstName: self.formData.firstname,
@@ -50,7 +61,18 @@ angular
       };
     };
 
-  }]);
+    self.deleteUser = function(userId){
+      var e = this;
+      $http.post('http://localhost:50211/api/user/delete',
+        {Id: userId})
+        .success(function(response) {
+        })
+        .error(function() {
+          console.log('Failed');
+        });
+    };
+
+
 
 var CHAR_REGEX = /^[A-Za-z]+$/;
 angular
@@ -100,3 +122,4 @@ angular
       }
     };
   });
+}]);

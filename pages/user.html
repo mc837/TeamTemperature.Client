@@ -3,45 +3,70 @@
     <small>-Add a new user</small>
   </h1>
 </div>
+<!-- <span ng-init="ctrl.initi()" ng-repeat=></span> -->
+<!-- <span ng-init="ctrl.initi()"></span>
+<li ng-repeat="user in ctrl.allUsers.Users">
+{{user.FirstName}}
+</li> -->
+
+<table class="table table-striped" ng-init="ctrl.initi()">
+<thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Priviledge</th>
+    <th></th>
+  </tr>
+</thead>
+<tr ng-repeat="user in ctrl.allUsers.Users" >
+  <th>{{user.FirstName}}</th>
+  <th>{{user.Surname}}</th>
+  <th>{{user.Email}}</th>
+  <th>{{user.Priviledge}}</th>
+  <th><input type="button" class="btn btn-success" value="Edit" /></th>
+  <th><input type="button" class="btn btn-danger" value="Delete" id="{{user.Id}}" ng-click="ctrl.deleteUser(user.Id)"/></th>
+</tr>
+</table>
 
 <div class="panel panel-default">
-  <div class="panel-body">
-    <form name=user-form class="form-horizontal" novalidate>
-      <!-- <div class="form-group"> -->
-        <label for="firstname" class="col-sm-2 control-label">Firstname</label>
-        <div class="col-sm-4">
-          <input type="text" ng-model="ctrl.formData.firstname" id="firstname" name="firstname" class="form-control" placeholder="Firstname" />
-        </div>
-      <!-- </div> -->
-      <div class="form-group">
-        <label for="surname"  class="col-sm-2 control-label">Surname</label>
-        <div class="col-sm-4">
-          <input type="text" ng-model="ctrl.formData.surname" id="surname" name="surname" class="form-control" placeholder="Surnname"/>
-        </div>
+<div class="panel-body">
+  <form name=user-form class="form-horizontal" novalidate>
+    <!-- <div class="form-group"> -->
+    <label for="firstname" class="col-sm-2 control-label">Firstname</label>
+    <div class="col-sm-4">
+      <input type="text" ng-model="ctrl.formData.firstname" id="firstname" name="firstname" class="form-control" placeholder="Firstname"/>
+    </div>
+    <!-- </div> -->
+    <div class="form-group">
+      <label for="surname" class="col-sm-2 control-label">Surname</label>
+      <div class="col-sm-4">
+        <input type="text" ng-model="ctrl.formData.surname" id="surname" name="surname" class="form-control" placeholder="Surnname"/>
       </div>
-      <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-4">
-          <input type="text" ng-model="ctrl.formData.email"  id="email" name="email" class="form-control" placeholder="Email"/>
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-4">
+        <input type="text" ng-model="ctrl.formData.email" id="email" name="email" class="form-control" placeholder="Email"/>
       </div>
-      <div class="form-group">
-        <div class="radio-inline col-md-offset-2">
-          <label class="col-sm-3">
-            <input type="radio" ng-model="ctrl.formData.priviledge" id="priveledge-standard" name="priveledge" value="standard" checked>
-            Standard
-          </label>
-        </div>
-        <div class="radio-inline col-md-offset-2">
-          <label class="col-sm-3">
-            <input type="radio" ng-model="ctrl.formData.priviledge" id="priveledge-standard" name="priveledge" value="superuser">
-            SuperUser
-          </label>
-        </div>
+    </div>
+    <div class="form-group">
+      <div class="radio-inline col-md-offset-2">
+        <label class="col-sm-3">
+          <input type="radio" ng-model="ctrl.formData.priviledge" id="priveledge-standard" name="priveledge" value="standard" checked>
+          Standard
+        </label>
       </div>
-      <div class="col-md-offset-2">
-        <input type="submit" class="btn btn-primary" name="submit" value="Add" ng-click="ctrl.submit()">
+      <div class="radio-inline col-md-offset-2">
+        <label class="col-sm-3">
+          <input type="radio" ng-model="ctrl.formData.priviledge" id="priveledge-standard" name="priveledge" value="superuser">
+          SuperUser
+        </label>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="col-md-offset-2">
+      <input type="submit" class="btn btn-primary" name="submit" value="Add" ng-click="ctrl.submit()">
+    </div>
+  </form>
+</div>
 </div>
